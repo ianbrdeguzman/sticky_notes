@@ -122,7 +122,7 @@ const addNote = (e) => {
                         <button class="del"><i class="fas fa-trash-alt"></i></button>
                     </header>
                     <div class="content">
-                                <textarea></textarea>
+                                <textarea maxlength="40"></textarea>
                     </div>
                 </div>
                 `
