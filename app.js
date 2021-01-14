@@ -38,7 +38,7 @@ body.addEventListener('click', (e) => {
     
     // check if element class name is add call addNote function
     if (classEl === 'add') {
-        addNote(e);
+        addNote();
     }
     
     // check if element class name is dek call delNote function
@@ -110,7 +110,7 @@ const delNote = (e) => {
     currentDiv.remove();
 };
 
-const addNote = (e) => {
+const addNote = () => {
 
     // assign new div container
     const div = `
