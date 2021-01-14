@@ -92,6 +92,8 @@ textarea {
     font-size: 2rem;
     font-family: var(--main-font);
     padding: 1rem;
+    outline: none;
+    border: none;
 }
 
 .modal-container {
