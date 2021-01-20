@@ -14,7 +14,7 @@ const body = document.querySelector('body');
         `
         <div class="container">
             <header>
-                <p>Sticky Note</p>
+                <p>Sticky</p>
                 <button class="add"><i class="fas fa-plus"></i></button>
                 <button class="save"><i class="far fa-save"></i></button>
                 <button class="del"><i class="fas fa-trash-alt"></i></button>
@@ -35,7 +35,6 @@ const body = document.querySelector('body');
 // add event listener to mouse click
 body.addEventListener('click', (e) => {
     const classEl = e.target.parentNode.className;
-    
     // check if element class name is add call addNote function
     if (classEl === 'add') {
         addNote();
@@ -50,8 +49,51 @@ body.addEventListener('click', (e) => {
     if (classEl === 'save') {
         saveNote(e);
     }
-
 })
+
+const addNote = () => {
+    // assign new div container
+    const div = `
+                <div class="container">
+                    <header>
+                        <p>Sticky Note</p>
+                        <button class="add"><i class="fas fa-plus"></i></button>
+                        <button class="save"><i class="far fa-save"></i></button>
+                        <button class="del"><i class="fas fa-trash-alt"></i></button>
+                    </header>
+                    <div class="content">
+                                <textarea maxlength="40"></textarea>
+                    </div>
+                </div>
+                `
+    // add new div container to html body
+    document.body.insertAdjacentHTML('beforeend', div);
+};
+
+const delNote = (e) => {
+
+    // assign textarea value
+    const textValue = e.target.parentNode.parentNode.nextElementSibling.childNodes[1].value;
+    
+    // assign current div container
+    const currentDiv = e.target.parentNode.parentNode.parentNode;
+
+    // loop over localStorage length
+    for (let i = 0; i <= localStorage.length; i++) {
+
+        // assign stored value
+        const stored = localStorage.getItem(i);
+
+        // check if stored value is equal to current div container value
+        if (textValue === stored) {
+
+            // remove stored value
+            localStorage.removeItem(i)
+        }
+    }
+    // remove current div container
+    currentDiv.remove();
+};
 
 const saveNote = (e) => {
 
@@ -83,49 +125,4 @@ const saveNote = (e) => {
             }
         }
     }
-};
-
-const delNote = (e) => {
-
-    // assign textarea value
-    const textValue = e.target.parentNode.parentNode.nextElementSibling.childNodes[1].value;
-    
-    // assign current div container
-    const currentDiv = e.target.parentNode.parentNode.parentNode;
-
-    // loop over localStorage length
-    for (let i = 0; i <= localStorage.length; i++) {
-
-        // assign stored value
-        const stored = localStorage.getItem(i);
-
-        // check if stored value is equal to current div container value
-        if (textValue === stored) {
-
-            // remove stored value
-            localStorage.removeItem(i)
-        }
-    }
-    // remove current div container
-    currentDiv.remove();
-};
-
-const addNote = () => {
-
-    // assign new div container
-    const div = `
-                <div class="container">
-                    <header>
-                        <p>Sticky Note</p>
-                        <button class="add"><i class="fas fa-plus"></i></button>
-                        <button class="save"><i class="far fa-save"></i></button>
-                        <button class="del"><i class="fas fa-trash-alt"></i></button>
-                    </header>
-                    <div class="content">
-                                <textarea maxlength="40"></textarea>
-                    </div>
-                </div>
-                `
-    // add new div container to html body
-    document.body.insertAdjacentHTML('beforeend', div);
 };

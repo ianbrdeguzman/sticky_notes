@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sticky Note</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./app.js" defer></script>
+    <!-- Fontawesome Icons -->
     <script src="https://kit.fontawesome.com/1a8bb7941b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,10 +16,9 @@
                 <p><a href="https://github.com/ianbrdeguzman/stickynotes" target="_blank">code</a></p>
             </div>
             <button class="add"><i class="fas fa-plus"></i></button>
-            <button class="save"><i class="far fa-save"></i></button>
         </header>
         <div class="content">
-            <textarea class="text-area" placeholder="Add notes here..." maxlength="30"></textarea>
+            <textarea class="text-area" placeholder="Click plus (+) icon to create new sticky note" maxlength="30" readonly></textarea>
         </div>
     </div>
 </body>
