@@ -1,5 +1,5 @@
 # Sticky Notes
-Check it out <a href="https://ianbrdeguzman.github.io/stickynotes/">here!</a>
+Check it out [here!](https://ianbrdeguzman.github.io/sticky_notes/)
 #### Created using:
 * HTML5
 * CSS3
